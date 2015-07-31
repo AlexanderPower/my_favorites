@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Index:
+  = @company.index
+%p
+  %b Show:
+  = @company.show
+
+= link_to 'Edit', edit_company_path(@company)
+\|
+= link_to 'Back', companies_path
