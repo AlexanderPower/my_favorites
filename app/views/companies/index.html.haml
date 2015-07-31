@@ -1,23 +1,13 @@
-%h1 Listing companies
-
-%table
+- model_class = Company
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
   %thead
     %tr
-      %th Index
-      %th Show
-      %th
-      %th
-      %th
-
+      %th Name
+      %th Country
   %tbody
     - @companies.each do |company|
       %tr
-        %td= company.index
-        %td= company.show
-        %td= link_to 'Show', company
-        %td= link_to 'Edit', edit_company_path(company)
-        %td= link_to 'Destroy', company, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Company', new_company_path
+        %td= link_to company.name, company
+        %td=Country.find_country_by_country_code(company.country_code).name
