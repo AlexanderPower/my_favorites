@@ -31,6 +31,8 @@ gem 'pg'
 # Data
 gem 'countries'
 
+gem 'markable', git: 'git://github.com/chrome/markable.git'
+
 # Test
 group :test do
   gem 'database_cleaner'
