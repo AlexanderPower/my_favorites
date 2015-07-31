@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :person do
-    name "MyString"
-company nil
+    name Faker::Name.name
+    #company nil
   end
 
 end
