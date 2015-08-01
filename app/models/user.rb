@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
   acts_as_marker
 
   def favorites
-    (favorite_companies + favorite_people).sort{|a,b| b.created_at <=> a.created_at }
+    (favorite_companies.includes(:markable_marks) + favorite_people.includes(:markable_marks)).sort do |a, b|
+      b.markable_marks.find_by(marker_id: self.id).created_at <=>
+          a.markable_marks.find_by(marker_id: self.id).created_at
+    end
     # (favorite_companies && favorite_people).order(created_at: :desc)
   end
 end
