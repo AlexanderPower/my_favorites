@@ -6,8 +6,11 @@
 %table.table.table-striped
   %thead
     %tr
+      %th
       %th Name
   %tbody
     - @company.people.each do |person|
       %tr
+        %td
+          =icon_for_favorite person
         %td= person.name
