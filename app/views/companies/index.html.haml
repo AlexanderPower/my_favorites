@@ -11,7 +11,6 @@
     - @companies.each do |company|
       %tr
         %td
-          %i.fa.fa-star-o.fa-2x{data: {favorite: company.to_json}}
-          %i.fa.fa-star.fa-2x
+          %i.fa.fa-star-o.fa-2x{data: {id: company.id,klass: :company}}
         %td= link_to company.name, company
         %td=Country.find_country_by_country_code(company.country_code).name

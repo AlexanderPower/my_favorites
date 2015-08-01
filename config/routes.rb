@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'add_favorite' => 'favorites#add_favorite', as: :add_favorite
+  delete 'delete_favorite' =>'favorites#delete_favorite', as: :delete_favorite
+  get 'favorites' =>'favorites#favorites', as: :favorites
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
