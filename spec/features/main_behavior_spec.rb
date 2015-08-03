@@ -33,6 +33,7 @@ describe 'main user behavior' do
       # find("[data-id='#{company1.id}']").click
       find(".company-#{company1.id}").click
       wait_for_ajax
+      # have filled star
       expect(page).to have_css '.fa-star'
 
       visit company_path company1
@@ -44,6 +45,8 @@ describe 'main user behavior' do
       expect(page).to have_content company1.name
       expect(page).to have_content person1.name
       expect(page).to have_content person2.name
+
+      expect(page).to have_no_content company2.name
     end
   end
 end
